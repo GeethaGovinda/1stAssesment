@@ -1,0 +1,120 @@
+//------------------------------ call by value call by refrence---------------------------------------//
+
+#include <stdio.h>
+
+int main()
+{
+    int a=10,b=20;
+    printf("a %d and b %d before swap",a,b);
+    swap(&a,&b);
+    printf("\na %d and b %d after swap",a,b);
+    return 0;
+}
+void swap(int *a1,int *b1)
+{
+    int temp;
+    temp=*a1;
+    *a1=*b1;
+    *b1=temp;
+}
+
+
+
+
+//----------------------------------finding biggest number-----------------------------------------------//
+#include <stdio.h>
+
+int main()
+{
+    int a[10],big=0;
+    printf("enter the  array elements");
+    for(int i=0;i<10;i++)
+    {
+        scanf("%d\n",&a[i]);
+        if(a[i]>big)
+        {
+        big=a[i];
+        }
+    }
+    printf("the biggest number is %d",big);
+   
+
+    return 0;
+}
+
+
+
+
+
+
+//-------------------------------finding biggest number using dymaic memory allocation---------------------------------//
+#include <stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int *p,big=0;
+    p=(int*)malloc(sizeof(int)*5);
+    printf("enter the  array elements");
+    for(int i=0;i<10;i++)
+    {
+        scanf("%d\n",&p[i]);
+        if(p[i]>big)
+        {
+        big=p[i];
+        }
+    }
+    printf("the biggest number is %d",big);
+
+
+    return 0;
+}
+
+
+
+
+//-----------------------------creating strcut using malloc memory allocation?-----------------------------------------------//
+#include <stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+struct emp{
+    char name[30];
+    char ph[10];
+    char id[10];
+};
+typedef struct emp employee;
+int main()
+{
+   employee *p;
+ p=(employee*)malloc(sizeof(employee));
+ strcpy(p->name,"geetha");
+ strcpy(p->ph,"57432487937");
+ strcpy(p->id,"3171");
+ printf("employee 1 deatils");
+ printf("%s\n",p->name);
+ printf("%s\n",p->ph);
+ printf("%s\n",p->id);
+ 
+ employee *p1;
+ p1=(employee*)malloc(sizeof(employee));
+ strcpy(p1->name,"seetha");
+ strcpy(p1->ph,"57432487");
+ strcpy(p1->id,"3243");
+ printf("employee 2 details");
+ printf("%s\n",p1->name);
+ printf("%s\n",p1->ph);
+ printf("%s\n",p1->id);
+ 
+ 
+ employee *p2;
+ p2=(employee*)malloc(sizeof(employee));
+ strcpy(p2->name,"jeetha");
+ strcpy(p2->ph,"57432487");
+ strcpy(p2->id,"3243");
+ printf("employee 3 deatils");
+ printf("%s\n",p2->name);
+ printf("%s\n",p2->ph);
+ printf("%s\n",p2->id);
+
+    return 0;
+}
